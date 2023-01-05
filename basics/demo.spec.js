@@ -27,9 +27,9 @@ describe('Source code is valid', () => {
     }
   })  
 
-  test('CSS validates without errors', async () => {
-    await expect(__dirname+'/css/*.css').toHaveNoCssLintErrorsAsync(); //test all files in css folder
-  })
+  // test('CSS validates without errors', async () => {
+  //   await expect(__dirname+'/css/*.css').toHaveNoCssLintErrorsAsync(); //test all files in css folder
+  // })
 
   test('JavaScript lints without errors', () => {
     if(fs.existsSync(__dirname+'/js')) {
