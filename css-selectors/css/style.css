@@ -16,3 +16,25 @@ p {
 .about {
     background-color: #eee;
 }
+
+.highlight {
+    color: red;
+}
+
+.about>p {
+    color: red;
+}
+
+h1:focus,
+h1:hover {
+    color: red;
+}
+
+.timstag {
+    color: blue;
+}
+
+.fontformat {
+    font-size: 1.5rem;
+    color: red;
+}

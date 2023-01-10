@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" >
+  <meta charset="UTF-8">
   <meta name="author" content="Tim Carlson">
   <title>Demo: Tim's Home Page</title>
   <link rel="stylesheet" href="css/style.css">
@@ -15,22 +15,70 @@
   </header>
 
   <main>
+    <div>
+    </div>
 
     <section class="about">
       <h2>About Me</h2>
-      <p>Hello! My name is Tim Carlson, and I'm a guest Faculty Member at the University of Washington Information School. I teach info340 (seattle), CSS 143 (bothell) and CSS 107 (bothell)</p>
+      <p>Hello! My name is <em>Tim Carlson</em>, and I'm a guest Faculty Member at the University of
+        Washington
+        Information School. I teach info340 (seattle), CSS 143 (bothell) and CSS 107 (bothell)</p>
 
+      <section class="anothersection">
+        <p>Hello! My name is <em>Tim Carlson</em>, and I'm a guest Faculty Member at the <span
+            class="fontformat">University of Washington</span>
+          Information School. I teach info340 (seattle), CSS 143 (bothell) and CSS 107 (bothell)</p>
+      </section>
       <p>
         <img src="https://assets.ischool.uw.edu/ai/timca/pci/timca-1.jpg" alt="Tim Carlson head picture">
-      </p>  
+      </p>
     </section>
-    
+
+
+    <!-- special chars: -->
+    &mdash;
+    &amp;
+    &lt;
+    &gt;
+
+    <!-- how to make an image into a link -->
+    <p>
+      <img src="https://assets.ischool.uw.edu/ai/timca/pci/timca-1.jpg" alt="Tim Carlson head">
+      <a href="http://espn.com"><img src="https://assets.ischool.uw.edu/ai/timca/pci/timca-1.jpg"
+          alt="Tim Carlson head picture"></a>
+    </p>
+    </section>
+
+
+    <!-- form example:
+   -->
+    <section>
+      <h2>Contact Form</h2>
+      <form>
+        <p><input type="text"></p>
+        <p><label for="name-input">Name:</label> <input id="name-input" type="text" name="username"></p>
+        <p><label for="email-input">Email:</label> <input id="email-input" type="email" name="useremail"></p>
+        <p><label for="fun-input">Fun:</label> <input id="fun-input" type="color"></p>
+        <p>
+          <lable for="file-input">File:</lable> <input id="file-input" type="file">
+        </p>
+        <p><label for="comment-text">Comment:</label> <textarea id="comment-text"></textarea></p>
+        <p><button type="submit">Submit</button></p>
+
+      </form>
+
+    </section>
+
+
     <section class="links">
       <h2>Some links</h2>
       <p>Link to the <a href="https://ischool.uw.edu">iSchool Homepage</a></p>
-      <p>My INFO 340 <a href="https://info340.github.io/" aria-label="info 340 course textbook">INFO 340 textbook</a></p>
+      <p>My INFO 340 <a href="https://info340.github.io/" aria-label="info 340 course textbook">INFO 340 textbook</a>
+      </p>
+      <p class="timstag">This is some text for tim's tag</p>
     </section>
   </main>
 
 </body>
+
 </html>
