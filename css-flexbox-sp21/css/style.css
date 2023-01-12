@@ -1,0 +1,12 @@
+
+p { color: gray; }
+
+#red p { color: red; }
+
+.blue { color: blue; }
+
+#red .blue { color: magenta; }
+
+.green p { color: lightgreen; }
+
+div.green p.blue { color: cyan; } 
