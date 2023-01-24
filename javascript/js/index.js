@@ -5,18 +5,20 @@
 
 // console.log("The days are getting longer")
 
-// // Slide 17 - dynamically typed
-// let myDogName = 'Jovie';
-// console.log(myDogName);
+// // // Slide 17 - dynamically typed
+// // let myDogName = "Jovie";
+// // console.log(myDogName);
+// // console.log(typeof(myDogName));
 
-// myDogName = 7;
-// console.log(myDogName);
+// // myDogName = 7;
+// // console.log(myDogName);
+// // console.log(typeof(myDogName));
 
-// let hoursSlept;
-// console.log(hoursSlept);
+// // let hoursSlept;
+// // console.log(hoursSlept);
 
 // // Slide 18
-// const x = 4;
+// let x = 4;
 // x = 5; // TypeError: Assignment to constant variable.
 
 // let y = 1.5;
@@ -44,6 +46,10 @@
 // letters.push('z'); //arrays have methods as well
 // console.log(letters);
 
+// const myArray = ["tim", "tom", "ted"];
+// console.log(myArray);
+// console.log(myArray[2])
+
 // // Slide 21
 // // an array of different dinners available at a fancy party
 // // this list has 4 elements, each of which is a list of 3 elements
@@ -59,11 +65,13 @@
 
 // const fishOption = dinnerOptions[2]; // ['fish', 'rice', 'green beans']
 
+// console.log(fishOption.length); //3
+
 // // fishOption is an array, so can reference its elements by index
 // console.log(fishOption[0]); //"fish"
 
 // // Access the 2th element's 0th element
-// console.log(dinnerOptions[2][0]); //"fish"
+// console.log(dinnerOptions[1][0]); //"fish"
 
 
 // // Slide 22 (type coersion)
@@ -72,6 +80,8 @@
 
 // console.log('40' + 4);
 // console.log('40' - 4);
+// console.log('fourty' - 4);
+// console.log('fourty' + 4);
 
 
 // const num = 10
@@ -83,7 +93,7 @@
 // const compare2 = (num === str)
 // console.log("compare2 is:", compare2)
 
-// const compare3 = ('' == 0) //empty String compare to 0
+// const compare3 = ('' === 0) //empty String compare to 0
 // console.log("compare3 is:", compare3)
 
 // const var1 = "one";
@@ -95,16 +105,24 @@
 // console.log(var1 + var2 + var3, var4);
 
 // // Slide 23
-// const ages = {'sarah':42, 'amit':35, 'zhang':13}
+// const ages = {sarah:42, amit:35, zhang:13};
+
+// const myVar = 'sarah';
 
 // console.log(ages);
+// console.log(ages[myVar])
+// console.log(ages['sarah']);
 // console.log(ages.sarah);
 
 // //can omit quotes on keys, but they are actually strings!
 // const englishToSpanish = {one:'uno', two:'dos'}
-// const numWords = {1:'one', 2:'two', 3:'three'}
+
+
+// const numWords = {1:'one', 2:'two', 3:'three', 4:'four'};
+
 // const mykeys = Object.keys(numWords) //[ '1', '2', '3' ]
 
+// console.log(numWords);
 // console.log("myKeys:", mykeys); //see they are all strings even if you make them numerals. the keys are always strings in jscript
 
 // //mixed values
@@ -117,6 +135,7 @@
 // // Slide 24
 
 // const ages = {alice:40, bob:35, charles:13};
+
 // console.log(ages);
 
 // //access ("look up") values
@@ -132,13 +151,15 @@
 // console.log( ages['alice'] ); //=> 41
 
 // ages['fred'] = 19; //adds the key and assigns value
-
+// ages['joe'] = 15; //adds the key and assigns value
 // console.log(ages);
+
+// ages['joe'] = 15; //adds the key and assigns value
 
 // //slide 25 - practice problem
 
-// const breakfastObj = {breakfast: "oatmeal", 
-// hour: 8};
+// // const breakfastObj = {breakfast: "oatmeal", 
+// // hour: 8};
 
 // const breakfastObj = {};
 
@@ -163,6 +184,7 @@
 //   };
   
 //   const name = person['firstName']; //get value of 'firstName' key
+//   console.log(name);
 //   person['lastName'] = 'Jones'; //set value of 'lastName' key
 //   console.log(person['firstName']+' '+person['lastName']); //"Alice Jones"
   
@@ -171,7 +193,11 @@
 // //                   //object           //value
   
 //   const firstNumber = person['favorites']['numbers'][0]; //12
-//   person['favorites']['numbers'].push(7); //push 7 onto the Array
+
+//   console.log(firstNumber);
+//   person['favorites']['numbers'].push("hey"); //push 7 onto the Array
+
+//   console.log(person['favorites']['numbers']);
 
 
 // //Slide 27
@@ -186,26 +212,30 @@
 //     }
 //   };
   
+//   const inputtedValue = 'food';
+
 //   const name = person.firstName; //get value of 'firstName' key
 //   person.lastName = 'Jones'; //set value of 'lastName' key
 //   console.log(person.firstName+' '+person.lastName); //"Alice Jones"
   
   
-//   const favFood = person.favorites.inputtedValue; //undefined!!
+//   const favFood = person.favorites[inputtedValue]; //undefined!!
 //                 //object         //value
+
+//     console.log(favFood);
   
 //   const firstNumber = person.favorites.numbers[0]; //12
 //   person.favorites.numbers.push(7); //push 7 onto the Array
 
-// // Slide 29
-// //Arbitrary list of people's names, heights, and weights
-// const peopleTable = [
-//     {name: 'Ada', height: 64, weight: 135},
-//     {name: 'Bob', height: 74, weight: 156},
-//     {name: 'Chris', height: 69, weight: 139},
-//     {name: 'Diya', height: 69, weight: 144},
-//     {name: 'Emma', height: 71, weight: 152}
-// ]
+// Slide 29
+//Arbitrary list of people's names, heights, and weights
+const peopleTable = [
+    {name: 'Ada', height: 64, weight: 135},
+    {name: 'Bob', height: 74, weight: 156},
+    {name: 'Chris', height: 69, weight: 139},
+    {name: 'Diya', height: 69, weight: 144},
+    {name: 'Emma', height: 71, weight: 152}
+]
 
 // console.log(peopleTable);
 
@@ -215,27 +245,27 @@
 
 // // Slide 31
 
-// const myArray = [1, 2, 3, 4];
-// // example with normal for loop with array
-// for (let i=0;i<myArray.length; i++){
-//     console.log(myArray[i]);
-// }
+const myArray = [1, 2, 3, 4];
+// example with normal for loop with array
+for (let i=0;i<myArray.length; i++){
+    console.log(myArray[i]);
+}
 
-// // example with enhanced for loop with array
-// for(const theItem of myArray) { //loop array items
-//   console.log(theItem)
-// }
+// example with enhanced for loop with array
+for(const theItem of myArray) { //loop array items
+  console.log(theItem)
+}
 
-// // example with object 1
-// const myObject = {a: 1, b: 2, c: 3};
-// for(const theKey in myObject) { //loop object keys
-//   console.log(theKey, ":", myObject[theKey])
-// }
+// example with object 1
+const myObject = {a: 1, b: 2, c: 3};
+for(const theKey in myObject) { //loop object keys
+  console.log(theKey, ":", myObject[theKey])
+}
 
-// // example with object 2
-// //explicit key looping - prefered this
-// const keys = Object.keys(myObject);
-// for(const theKey of keys) 
-// { console.log(theKey, ":", myObject[theKey])}
+// example with object 2
+//explicit key looping - prefered this
+const keys = Object.keys(myObject);
+for(const theKey of keys) 
+{ console.log(theKey, ":", myObject[theKey])}
 
 // Slide 32
