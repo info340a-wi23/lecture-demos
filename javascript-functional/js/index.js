@@ -25,13 +25,14 @@ const peopleArray = [
 // function sayHello(name) { 
 //   console.log("Hello, "+name);
 // }
-
+// // console.log(sayHello("tim"))
 // console.log(typeof sayHello); // 'function'
 
 // const other1 = sayHello;
 
 // //prints "Hello, everyone"
 // other1('everyone'); 
+
 
 // Slide 10
 // const array = [1,2,3]; //named variable (not anonymous)
@@ -60,23 +61,31 @@ const peopleArray = [
 
 // //Slide 11
 // const obj = {}
+
 // function sayHello(name) { 
 //    console.log("Hello, "+name);
 // }
 
+// console.log(obj);
+
 // //assign function to object
 // obj.sayHi = sayHello;
 
-// //access with dot notation
-// obj.sayHi('all'); //prints "Hello all"
+// // //access with dot notation
+// // obj.sayHi('all'); //prints "Hello all"
+// // console.log(obj.sayHi)
 
+// console.log(obj);
 
 // //assign literal (anonymous value)
 // obj.otherFunc = function() { 
 //     console.log("Hello world!");
 // }
 
-//slide 12
+// console.log(obj);
+// // console.log(obj.otherFunc());
+
+// slide 12
 
 // function sayHello(name) { 
 //   console.log("Hello, "+name);
@@ -89,8 +98,8 @@ const peopleArray = [
 //   aFunction("world");
 // }
 
-// //call function and pass value
-// doWorld(sayHello); //prints "Hello world"
+// // //call function and pass value
+// // doWorld(sayHello); //prints "Hello world"
 
 
 // //pass literal (anonymous value)
@@ -130,7 +139,7 @@ const peopleArray = [
 // }
 
 // //pass in the callbacks to do them together
-// doTogether(patHead, rubBelly);
+// doTogether(rubBelly, patHead());
 
 // // Slide 15
 
@@ -209,41 +218,48 @@ const peopleArray = [
 
 // //Slide 18 Mapping
 
-// function square(n) { //a function that squares a number
-//   return n*n;
-// }
+// // function square(n) { //a function that squares a number
+// //   return n*n;
+// // }
 
 // const numbers = [1,2,3,4,5];  //an initial array
 // console.log(numbers);
 
-// //transform the numbers using the square() function
-// const squares = []; //the transformed array
-// for(let i=0; i<numbers.length; i++) {
-//  const transformed = square(numbers[i]);
-//  squares.push(transformed); //add transformed to array
-// }
-// console.log(squares); // [1, 4, 9, 16, 25]
-
-// // //map the numbers using anonymous callback function
-// // const squares = numbers.map(function(n) {
-// //     return n*n;
-// // })
-
-
+// // //transform the numbers using the square() function
+// // const squares = []; //the transformed array
+// // for(let i=0; i<numbers.length; i++) {
+// //  const transformed = square(numbers[i]);
+// //  squares.push(transformed); //add transformed to array
+// // }
 // // console.log(squares); // [1, 4, 9, 16, 25]
+
+// //map the numbers using anonymous callback function
+// const squares = numbers.map(function(n) {
+//     return n*n;
+// })
+
+
+// console.log(squares); // [1, 4, 9, 16, 25]
 
 // // Slide 19 - Practice
 
 // const peopleNames = ['Mickey', 'Daffy', 'Elmer'];
+
+// const greetTransform = function (nameString) {
+//   const transformed = "Hi " + nameString + "!"
+//   return transformed
+// };
 
 // const peopleGreetings = peopleNames.map(function (nameString) {
 //   const transformed = "Hi " + nameString + "!"
 //   return transformed
 // });
 
+// // const peopleGreetings = peopleNames.map(greetTransform);
+
 // console.log(peopleGreetings);
 
-// //Slide 20 - Filtering
+//Slide 20 - Filtering
 
 // const array = [3,1,4,2,5];
 // console.log(array);
@@ -254,6 +270,7 @@ const peopleArray = [
 
 // console.log(isACrowd);
 
+// console.log(peopleArray);
 // const tallPeopleArray = peopleArray.filter(function (personObj) {
 //   return personObj.height > 69;
 // })
@@ -295,7 +312,7 @@ const peopleArray = [
 // console.log(totalHeightOfPeople);
 
 // // Slide 23 - Practice 
-// const phoneDigits = [8,5,2,6,3.5,7];
+// const phoneDigits = [6,5,2,6,3.5,7];
 
 // function largest(currentLargest, newNumber) {
 //   if (newNumber >= currentLargest )
