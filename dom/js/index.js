@@ -50,11 +50,13 @@ const songArray = [
 // //make the padding really big
 // document.querySelector('header').classList.add('py-5')
 
+// console.log(document.querySelector('header').classList);
+
 // const theImg = document.querySelector('img');
 
 // theImg.classList.add('anim') //adds a new style
 
-// // In the console type: "theImg.classList.toggle('scale-out');"
+// // // In the console type: "theImg.classList.toggle('scale-out');"
 
 
 // //Slide 16 Creating Elements
@@ -209,61 +211,63 @@ const songArray = [
 //   //... do something with that value!  
 // });
 
-// //Slide 28A
-// //(note I'm readding createSongListItem and renderSongList here 
-// //because it was commented out above to make these examples independent
-// // note that the render songlist now clears out the section first before 
-// // rerendering
+//Slide 28A
+//(note I'm readding createSongListItem and renderSongList here 
+//because it was commented out above to make these examples independent
+// note that the render songlist now clears out the section first before 
+// rerendering
 
-// function createSongListItem(songObj) {
-//   //make this into a url
-//   const aElem = document.createElement('a');
-//   aElem.textContent = songObj.artist + " - " + songObj.title;
-//   aElem.href = songObj.youtubeUrl;
+renderSongList(songArray);
 
-//   // create the newLi and make
-//   const newLi = document.createElement('li');
-//   newLi.append(aElem);
-//   return newLi;
-// }
+function createSongListItem(songObj) {
+  //make this into a url
+  const aElem = document.createElement('a');
+  aElem.textContent = songObj.artist + " - " + songObj.title;
+  aElem.href = songObj.youtubeUrl;
 
-// function renderSongList(aSongArray) {
-//   // clear out the previous content befor rendering
-//   const songListElem = document.querySelector('#dataSection ol');
-//   songListElem.innerHTML = '';
+  // create the newLi and make
+  const newLi = document.createElement('li');
+  newLi.append(aElem);
+  return newLi;
+}
 
-//   for (const songObj of aSongArray) {
-//     const songLiElem = createSongListItem(songObj);
-//     songListElem.appendChild(songLiElem);
-//   }
+function renderSongList(aSongArray) {
+  // clear out the previous content befor rendering
+  const songListElem = document.querySelector('#dataSection ol');
+  songListElem.innerHTML = '';
 
-//   document.querySelector('#dataSection h2').textContent = "Top " + aSongArray.length + " Songs";
+  for (const songObj of aSongArray) {
+    const songLiElem = createSongListItem(songObj);
+    songListElem.appendChild(songLiElem);
+  }
 
-// }
-// const formElement = document.querySelector('#formSection form');
+  document.querySelector('#dataSection h2').textContent = "Top " + aSongArray.length + " Songs";
 
-// //listen for submit events
-// formElement.addEventListener('submit', function (event) {
-//   //stop normal behavior (going to a new site)
-//   event.preventDefault();
+}
+const formElement = document.querySelector('#formSection form');
 
-//   //access what value the user typed in
-//   const artistInput = document.querySelector('#artistInput');
-//   const titleInput = document.querySelector('#titleInput');
-//   const urlInput = document.querySelector('#urlInput');
+//listen for submit events
+formElement.addEventListener('submit', function (event) {
+  //stop normal behavior (going to a new site)
+  event.preventDefault();
 
-//   const artistVal = artistInput.value;
-//   const titleVal = titleInput.value;
-//   const urlVal = urlInput.value;
+  //access what value the user typed in
+  const artistInput = document.querySelector('#artistInput');
+  const titleInput = document.querySelector('#titleInput');
+  const urlInput = document.querySelector('#urlInput');
 
-//   console.log(artistVal + " " + titleVal + " " + urlVal);
+  const artistVal = artistInput.value;
+  const titleVal = titleInput.value;
+  const urlVal = urlInput.value;
 
-//   const newSong = { artist: artistVal, title: titleVal, youtubeUrl: urlVal };
+  console.log(artistVal + " " + titleVal + " " + urlVal);
 
-//   songArray.push(newSong);
+  const newSong = { artist: artistVal, title: titleVal, youtubeUrl: urlVal };
 
-//   renderSongList(songArray);
+  songArray.push(newSong);
 
-// });
+  renderSongList(songArray);
 
-// // renderSongList(songArray);
+});
+
+// renderSongList(songArray);
