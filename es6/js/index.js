@@ -9,11 +9,11 @@ const peopleArray = [
 ]
 console.log(peopleArray);
 
-// // Slide 5
-// //Example use of callback functions
-// // List out the people in the array
-// // We have an array of [{}, {}, {}]
-// // We want an array of ["","",""]
+// Slide 5
+//Example use of callback functions
+// List out the people in the array
+// We have an array of [{}, {}, {}]
+// We want an array of ["","",""]
 
 // // ex1
 // function getNameStringFromPersonObj(personObj) {
@@ -46,14 +46,14 @@ console.log(peopleArray);
 // Example of reduce
 // Find the average height/weight ratio
 
-// Ex1: First remember
+// // Ex1: First remember
 // const ratioArray = peopleArray.map(function (peopleObj) {
 // const ratio = peopleObj.height/peopleObj.weight;
 // return ratio;
 // })
 // console.log(ratioArray);
 
-// Ex2: Here's one way to do it
+// // Ex2: Here's one way to do it
 // const ratioTotal = peopleArray.reduce(function (oldRunningTotal, peopleObj) {
 //     console.log("oldTotal", oldRunningTotal);
 //     const ratio = peopleObj.height / peopleObj.weight;
@@ -77,7 +77,7 @@ console.log(peopleArray);
 //     return newAvgRatio;
 // }, 0)
 // console.log(ratioAvg);
-// // console.log(ratioTotal/peopleArray.length)
+// console.log(ratioTotal/peopleArray.length)
 
 // //Event listener
 // const buttonElem = document.querySelector('button');
@@ -100,7 +100,7 @@ console.log(peopleArray);
 
 // // Slide 9 - Arrow functions
 
-// //normal function declaration
+//  //normal function declaration
 // const foo = function(params) {
 //     return 'foo '+params;
 //   }
@@ -129,8 +129,8 @@ console.log(peopleArray);
 // console.log(b); //=> 2;
 // console.log(c); //=> 3;
 
-// // : Here's the way to return the avg from within the reduce method using the other extra params
-// // and demonstrating destructuring from teh people peopleObj
+// Here's the way to return the avg from within the reduce method using the other extra params
+// and demonstrating destructuring from teh people peopleObj
 // const ratioAvg = peopleArray.reduce(function (oldRunningTotal, peopleObj, idx, array) {
 
 //     const {height, weight} = peopleObj;
@@ -143,6 +143,19 @@ console.log(peopleArray);
 // }, 0)
 // console.log(ratioAvg);
 
+// const ratioAvg = peopleArray.reduce(function (oldRunningTotal, {height, weight}, idx, array) {
+
+//     // const {height, weight} = peopleObj;
+
+//     const ratio = height / weight;
+
+//     const newAvgRatio= oldRunningTotal + ratio/array.length;
+
+//     return newAvgRatio;
+// }, 0)
+// console.log(ratioAvg);
+
+
 // // Slide 14
 // //With an array
 // const dimensions = [10, 20, 30, 40];
@@ -154,12 +167,14 @@ console.log(peopleArray);
 
 // //With an object
 // const person = {name: 'Ada', height: 64, weight: 135}
-
+// console.log(person)
 // const copyOfPerson = {...person}; //clone an object!
+// console.log(copyOfPerson);
+
 // console.log(person === copyOfPerson); //false! different objects!
 
 // //all off the properties are "spread" into the new object
-// const personWithHat = {hat: 'bowler', ...person}
+// const personWithHat = {hat: 'baseball', ...person}
 // console.log(person); //has name, height, weight
 // console.log(personWithHat); //has name, height, weight, hat
 
