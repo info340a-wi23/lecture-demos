@@ -12,9 +12,12 @@ console.log("executing other.js");
 //     console.log("Text from 'otherFunc()' ");
 // }
 
-// //Slide 10 default example
-// export const otherMessage = "I'm other!";
+//Slide 10 default example
+export const otherMessage = "I'm other!";
 
-// export default function otherFunc() {
-//     console.log("Text from 'otherFunc()' ");
-// }
+export default function otherFunc() {
+    console.log("Text from 'otherFunc()' ");
+}
+
+
+ 
