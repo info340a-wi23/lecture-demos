@@ -249,7 +249,93 @@
 //   )
 // }
 
-//Slide 35 (36 and 37) to elevate state to App
+// //Slide 35 (36 and 37) to elevate state to App
+// import React, {useState} from 'react';
+
+// export function ChatPane(props) {
+// // const [chatMessages, setChatMessages] = useState(CHAT_HISTORY);
+//   const currentChannel = props.currentChannel;
+
+//   //only show current channel messages
+//   const channelMessages = props.chatMessages.filter((msgObj) => {
+//     return msgObj.channel === currentChannel;
+//   })
+
+//   const messageItemArray = channelMessages.map((messageObj) => {
+//     const element = (
+//       <MessageItem
+//         messageData={messageObj}
+//         key={messageObj.timestamp}
+//       />
+//     )
+//     return element;
+//   })
+
+// const [count, setCount] = useState(0);
+
+// console.log('calling chatpane')
+  
+// const handleClick = (event) => {
+//   console.log("you clicked me!");
+//     setCount(count+1);
+//     console.log(count);
+//     // addMessage("Click");
+// }
+
+
+// if (channelMessages.length === 0) {
+//   return <p>No Messages Yet</p>
+// }
+
+// return (
+//   <div className="scrollable-pane">
+//     <div className="pt-2 my-2">
+//       {/* testing button */}
+//       <button className="btn btn-outline-primary mb-3" onClick={handleClick}>
+//         Click me: {count}
+//       </button>
+//       <hr />
+
+//       {messageItemArray}
+//     </div>
+//   </div>
+// )
+
+// }
+
+// function MessageItem(props) {
+// const { userName, userImg, text } = props.messageData;
+
+// const [isLiked, setIsLiked ] = useState(false);
+
+// const handleClick = (event) => {
+//   setIsLiked(!isLiked);
+//   console.log("you liked " + userName + "'s post!");
+// }
+
+// let heartColor = 'grey';
+// if (isLiked){
+//   heartColor = 'red';
+// }
+
+// return (
+//   <div className="message d-flex mb-3">
+//     <div className="me-2">
+//       <img src={userImg} alt={userName + "'s avatar"} />
+//     </div>
+//     <div className="flex-grow-1">
+//       <p className="user-name">{userName}</p>
+//       <p>{text}</p>
+//       <button className="btn like-button" onClick={handleClick}>
+//         <span className="material-icons" style={{ color: heartColor }}>favorite_border</span>
+//       </button>
+//     </div>
+//   </div>
+// )
+// }
+
+//Post Lecture, add the Channel navigation (elevate state, etc)
+
 import React, {useState} from 'react';
 
 export function ChatPane(props) {
