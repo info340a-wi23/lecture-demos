@@ -1,59 +1,59 @@
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
 
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-// import { ChannelList } from './ChannelNav.js';
-// import { ChatPane } from './ChatPane.js';
-// import { ComposeForm } from './ComposeForm';
+import { ChannelList } from './ChannelNav.js';
+import { ChatPane } from './ChatPane.js';
+import { ComposeForm } from './ComposeForm';
 
-// import CHAT_HISTORY from '../data/chat_log.json';
+import CHAT_HISTORY from '../data/chat_log.json';
 
-// const CHANNEL_LIST = ['general', 'random', 'social', 'birbs', 'channel-5']
+const CHANNEL_LIST = ['general', 'random', 'social', 'birbs', 'channel-5']
 
-// export default function ChatPage(props) {
-//   const [chatMessages, setChatMessages] = useState(CHAT_HISTORY);
+export default function ChatPage(props) {
+  const [chatMessages, setChatMessages] = useState(CHAT_HISTORY);
 
-//   const urlParamObj = useParams(); //get me the url parameters
+  const urlParamObj = useParams(); //get me the url parameters
 
-//   const channelList = [
-//     'general', 'random', 'dank-memes', 'channel-4', 'pet-pictures'
-//   ]
+  const channelList = [
+    'general', 'random', 'dank-memes', 'channel-4', 'pet-pictures'
+  ]
 
-//   const currentUser = props.currentUser;
-//   const currentChannel = urlParamObj.channelName; //get channel name from url params
-
-
-//   const addMessage = (messageText) => {
-//     const userObj = currentUser;
-//     const newMessage = {
-//       "userId": userObj.userId,
-//       "userName": userObj.userName,
-//       "userImg": userObj.userImg,
-//       "text": messageText,
-//       "timestamp": Date.now(),
-//       "channel": currentChannel
-//     } 
-
-//     const updateChatMessages = [...chatMessages, newMessage];
-//     setChatMessages(updateChatMessages); //update state and re-render
-//   }
+  const currentUser = props.currentUser;
+  const currentChannel = urlParamObj.channelName; //get channel name from url params
 
 
-//   return (
-//     <div className="row flex-grow-1">
-//       <div className="col-3">
-//         <ChannelList channels={channelList} currentChannel={currentChannel} />
-//       </div>
-//       <div className="col d-flex flex-column">
-//         <ChatPane chatMessages={chatMessages} currentChannel={currentChannel} />
-//         <ComposeForm currentUser={currentUser} addMessageCallback={addMessage} />
-//       </div>
-//     </div>
-//   )
+  const addMessage = (messageText) => {
+    const userObj = currentUser;
+    const newMessage = {
+      "userId": userObj.userId,
+      "userName": userObj.userName,
+      "userImg": userObj.userImg,
+      "text": messageText,
+      "timestamp": Date.now(),
+      "channel": currentChannel
+    } 
+
+    const updateChatMessages = [...chatMessages, newMessage];
+    setChatMessages(updateChatMessages); //update state and re-render
+  }
+
+
+  return (
+    <div className="row flex-grow-1">
+      <div className="col-3">
+        <ChannelList channels={channelList} currentChannel={currentChannel} />
+      </div>
+      <div className="col d-flex flex-column">
+        <ChatPane chatMessages={chatMessages} currentChannel={currentChannel} />
+        <ComposeForm currentUser={currentUser} addMessageCallback={addMessage} />
+      </div>
+    </div>
+  )
 
 
 
-// }
+}
 
 // //Slide 16
 // import React, { useState } from 'react';
@@ -304,90 +304,90 @@
 //   )
 // }
 
-//Slide 29 - Adding listener for db changes and remove listener when unloading
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+// //Slide 29 - Adding listener for db changes and remove listener when unloading
+// import React, { useState, useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
 
-import {
-  getDatabase, ref, set as firebaseSet,
-  onValue, push as firebasePush
-} from 'firebase/database'; //realtime database
+// import {
+//   getDatabase, ref, set as firebaseSet,
+//   onValue, push as firebasePush
+// } from 'firebase/database'; //realtime database
 
-import { ChannelList } from './ChannelNav.js';
-import { ChatPane } from './ChatPane.js';
-import { ComposeForm } from './ComposeForm';
-import CHAT_HISTORY from '../data/chat_log.json';
-const CHANNEL_LIST = ['general', 'random', 'social', 'birbs', 'channel-5']
+// import { ChannelList } from './ChannelNav.js';
+// import { ChatPane } from './ChatPane.js';
+// import { ComposeForm } from './ComposeForm';
+// import CHAT_HISTORY from '../data/chat_log.json';
+// const CHANNEL_LIST = ['general', 'random', 'social', 'birbs', 'channel-5']
 
-export default function ChatPage(props) {
-  const [chatMessages, setChatMessages] = useState([]);
-  const urlParamObj = useParams(); //get me the url parameters
-  const channelList = ['general', 'random', 'dank-memes', 'channel-4', 'pet-pictures']
-  const currentUser = props.currentUser;
-  const currentChannel = urlParamObj.channelName; //get channel name from url params
+// export default function ChatPage(props) {
+//   const [chatMessages, setChatMessages] = useState([]);
+//   const urlParamObj = useParams(); //get me the url parameters
+//   const channelList = ['general', 'random', 'dank-memes', 'channel-4', 'pet-pictures']
+//   const currentUser = props.currentUser;
+//   const currentChannel = urlParamObj.channelName; //get channel name from url params
 
-  const db = getDatabase();
-  const allMessageRef = ref(db, "allMessages");
-  //run this function when the chat pane first loads
-  useEffect(() => {
+//   const db = getDatabase();
+//   const allMessageRef = ref(db, "allMessages");
+//   //run this function when the chat pane first loads
+//   useEffect(() => {
 
-    const offFunction = onValue(allMessageRef, (snapshot) => {
-      const valueObj = snapshot.val();
+//     const offFunction = onValue(allMessageRef, (snapshot) => {
+//       const valueObj = snapshot.val();
 
-      const objKeys = Object.keys(valueObj);
+//       const objKeys = Object.keys(valueObj);
       
-      const allMessageArray = objKeys.map((keyString) => {
-        const theMessageObj = valueObj[keyString];
-        theMessageObj.key = keyString;
-        return theMessageObj;
-      })
+//       const allMessageArray = objKeys.map((keyString) => {
+//         const theMessageObj = valueObj[keyString];
+//         theMessageObj.key = keyString;
+//         return theMessageObj;
+//       })
 
-      console.log(allMessageArray);
-      setChatMessages(allMessageArray);
+//       console.log(allMessageArray);
+//       setChatMessages(allMessageArray);
 
-    })
-    function cleanup() {
-      console.log("Component is being removed");
-      console.log("turn out the lights");
-      offFunction();
-    }
-    return cleanup;
-  }, [])
+//     })
+//     function cleanup() {
+//       console.log("Component is being removed");
+//       console.log("turn out the lights");
+//       offFunction();
+//     }
+//     return cleanup;
+//   }, [])
 
 
-  const addMessage = (messageText) => {
-    const userObj = currentUser;
-    const newMessage = {
-      "userId": userObj.userId,
-      "userName": userObj.userName,
-      "userImg": userObj.userImg,
-      "text": messageText,
-      "timestamp": Date.now(),
-      "channel": currentChannel
-    }
+//   const addMessage = (messageText) => {
+//     const userObj = currentUser;
+//     const newMessage = {
+//       "userId": userObj.userId,
+//       "userName": userObj.userName,
+//       "userImg": userObj.userImg,
+//       "text": messageText,
+//       "timestamp": Date.now(),
+//       "channel": currentChannel
+//     }
 
-    const updateChatMessages = [...chatMessages, newMessage];
-    setChatMessages(updateChatMessages); //update state and re-render
+//     const updateChatMessages = [...chatMessages, newMessage];
+//     setChatMessages(updateChatMessages); //update state and re-render
 
-    //play with firebase database
-    const db = getDatabase();
-    const messageRef = ref(db, "exampleMessage");
-    const profLastNameRef = ref(db, "professor/lastName");
+//     //play with firebase database
+//     const db = getDatabase();
+//     const messageRef = ref(db, "exampleMessage");
+//     const profLastNameRef = ref(db, "professor/lastName");
 
-    const allMessagesRef = ref(db, "allMessages")
-    firebasePush(allMessagesRef, newMessage);
+//     const allMessagesRef = ref(db, "allMessages")
+//     firebasePush(allMessagesRef, newMessage);
 
-  }
+//   }
 
-  return (
-    <div className="row flex-grow-1">
-      <div className="col-3">
-        <ChannelList channels={channelList} currentChannel={currentChannel} />
-      </div>
-      <div className="col d-flex flex-column">
-        <ChatPane chatMessages={chatMessages} currentChannel={currentChannel} />
-        <ComposeForm currentUser={currentUser} addMessageCallback={addMessage} />
-      </div>
-    </div>
-  )
-}
+//   return (
+//     <div className="row flex-grow-1">
+//       <div className="col-3">
+//         <ChannelList channels={channelList} currentChannel={currentChannel} />
+//       </div>
+//       <div className="col d-flex flex-column">
+//         <ChatPane chatMessages={chatMessages} currentChannel={currentChannel} />
+//         <ComposeForm currentUser={currentUser} addMessageCallback={addMessage} />
+//       </div>
+//     </div>
+//   )
+// }
