@@ -12,13 +12,12 @@ import App from './components/App';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyChR-uCZQrXIuC8l0QGQynq6D6z43cRXN8",
-  authDomain: "react-chat-firebase1-temp.firebaseapp.com",
-  databaseURL: "https://react-chat-firebase1-temp-default-rtdb.firebaseio.com",
-  projectId: "react-chat-firebase1-temp",
-  storageBucket: "react-chat-firebase1-temp.appspot.com",
-  messagingSenderId: "1052807428829",
-  appId: "1:1052807428829:web:b155cb5ef576560cf47934"
+  apiKey: "AIzaSyDb5rO7-hBq0PJ3emVEwv1Uwz8K3Dtz7kk",
+  authDomain: "react-chat-wi23a.firebaseapp.com",
+  projectId: "react-chat-wi23a",
+  storageBucket: "react-chat-wi23a.appspot.com",
+  messagingSenderId: "716444400015",
+  appId: "1:716444400015:web:a3c6f14042da5bf100f3fa"
 };
 
 // Initialize Firebase
